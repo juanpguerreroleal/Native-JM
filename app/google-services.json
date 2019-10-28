@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "117439070936",
+    "firebase_url": "https://sinuous-impact-230021.firebaseio.com",
+    "project_id": "sinuous-impact-230021",
+    "storage_bucket": "sinuous-impact-230021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117439070936:android:d4146edadb38df744c8dad",
+        "android_client_info": {
+          "package_name": "com.lms.medicenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHVgWTR1hXDAQmSktH7YPan7ApFVbZQDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
