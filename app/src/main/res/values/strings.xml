@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">Medicenter</string>
+    <string name="app_name">Jobmaster</string>
     <string name="Email">Email</string>
     <string name="Password">Password</string>
+    <string name="login">Login</string>
+    <string name="fullName">Full name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="register">Register</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="map">Map</string>
 </resources>

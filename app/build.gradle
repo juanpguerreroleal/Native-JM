@@ -9,8 +9,8 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.lms.medicenter"
-        minSdkVersion 16
+        applicationId "com.lms.JobMaster"
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -35,7 +35,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.1.0-beta01'
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
-
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-firestore:21.2.1'
+    implementation 'com.android.support:multidex:2.0.1'
 
 }
 

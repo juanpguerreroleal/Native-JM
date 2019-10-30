@@ -1,4 +1,4 @@
-package com.lms.medicenter
+package com.lms.jobmaster
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

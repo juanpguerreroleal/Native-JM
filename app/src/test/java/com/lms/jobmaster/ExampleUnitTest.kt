@@ -1,4 +1,4 @@
-package com.lms.medicenter
+package com.lms.jobmaster
 
 import org.junit.Test
 

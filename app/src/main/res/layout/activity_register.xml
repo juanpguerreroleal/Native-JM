@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lms.jobmaster.LoginActivity">
+    tools:context="com.lms.jobmaster.RegisterActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameLayout"
+        style="@style/LoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/fullName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono"
+            android:textColor="@android:color/black"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
@@ -13,33 +39,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:hint="@string/Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/nameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:minLines="1"
-            android:maxLines="1"
-            android:maxLength="35"
             android:fontFamily="@font/roboto_mono"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
         style="@style/LoginLayout"
-        app:endIconMode="password_toggle"
-        app:endIconCheckable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -56,25 +75,48 @@
             android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:minLines="1"
-            android:maxLines="1"
-            android:maxLength="35"
+            android:fontFamily="@font/roboto_mono"
+            android:textColor="@android:color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmLayout"
+        style="@style/LoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/confirm_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirmInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono"
             android:textColor="@android:color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
+        style="@style/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="@string/login"
+        android:layout_marginBottom="30dp"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
-        style="@style/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/nameLayout"
+        app:layout_constraintVertical_bias="0.882"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

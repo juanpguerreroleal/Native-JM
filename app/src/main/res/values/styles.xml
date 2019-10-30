@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -6,6 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LoginLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/focusBorderLogin</item>
+        <item name="hintTextColor" tools:targetApi="lollipop">@color/focusBorderLogin</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+    </style>
+
+    <style name="buttonLogin" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor" tools:targetApi="lollipop">@color/colorPrimaryDark</item>
+        <item name="rippleColor" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="strokeColor">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+
     </style>
 
 </resources>
