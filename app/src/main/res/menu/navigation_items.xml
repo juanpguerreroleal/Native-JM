@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/map"
+        android:title="MAPA"
+        android:icon="@drawable/icon_map" />
+
+    <item android:id="@+id/home"
+        android:title="INICIO"
+        android:icon="@drawable/icon_home" />
+
+    <item android:id="@+id/profile"
+        android:title="PERFIL"
+        android:icon="@drawable/icon_profile" />
+
+</menu>
