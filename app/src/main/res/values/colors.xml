@@ -10,4 +10,10 @@
     <color name="hintLogin">#394DBE</color>
     <color name="borderButton">#26418f</color>
 
+    <!-- Main colors -->
+    <color name="bottomNav">#262B8F</color>
+
+    <!-- Others -->
+    <color name="white">#FFFFFF</color>
+
 </resources>

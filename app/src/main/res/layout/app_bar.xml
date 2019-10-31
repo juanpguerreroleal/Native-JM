@@ -1,24 +1,18 @@
-<com.google.android.material.tabs.TabLayout
-    android:id="@+id/tabs"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/Widget.MaterialComponents.TabLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <com.google.android.material.tabs.TabItem
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:icon="@drawable/ic_card_travel_24px"
-        android:text="@string/map"/>
-    <com.google.android.material.tabs.TabItem
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:icon="@drawable/ic_home_24px"
-        android:text="@string/home"/>
-    <com.google.android.material.tabs.TabItem
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:icon="@drawable/ic_face_24px"
-        android:text="@string/profile"/>
-
-</com.google.android.material.tabs.TabLayout>
+<item
+    android:title="@string/map"
+    android:id="@+id/Map"
+    android:icon="@drawable/ic_card_travel_24px"/>
+<item android:title="@string/home"
+    android:id="@+id/Home"
+    android:background="@color/white"
+    android:icon="@drawable/ic_home_24px"/>
+<item android:title="@string/profile"
+    android:id="@+id/Profile"
+    android:background="@color/white"
+    android:icon="@drawable/ic_face_24px"/>
+</menu>
