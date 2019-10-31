@@ -21,10 +21,4 @@
         <item name="android:fontFamily">@font/roboto_mono</item>
     </style>
 
-    <style name="bottomNav" parent="Widget.Design.BottomNavigationView">
-        <item name="android:background">@color/bottomNav</item>
-        <item name="android:fontFamily">@font/libre_franklin_bold</item>
-        <item name="android:state_checked">true</item>
-    </style>
-    font
 </resources>

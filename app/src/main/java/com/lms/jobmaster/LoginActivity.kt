@@ -1,24 +1,21 @@
 package com.lms.jobmaster
 
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.AdapterView
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
-import com.google.android.gms.tasks.OnCompleteListener
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var view: View
     private lateinit var auth: FirebaseAuth
     private lateinit var email: TextInputEditText
     private lateinit var password: TextInputEditText
@@ -30,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         email = emailInput
         password = passwordInput
+        view = findViewById(R.id.root0_layout)
         onStart()
     }
 
@@ -37,31 +35,40 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser == null) {
-            loginButton.setOnClickListener { signIn() }
+            loginButton.setOnClickListener { signIn(view) }
         } else {
             updateUI(currentUser)
         }
 
     }
 
-    private fun signIn() {
+    private fun signIn(view: View) {
 
-        val p0 = email.toString()
-        val p1 = password.toString()
-        auth.signInWithEmailAndPassword(p0, p1).addOnCompleteListener(this) { task ->
-            when {
-                task.isSuccessful -> {
-                    val user = auth.currentUser
-                    updateUI(user)
-                }
-                else -> {
-                    Log.w("Failed", task.exception)
-                    counterIntents += 1
-                    if (counterIntents == 3) {
-                        showDialog()
+        val p0 = email.text.toString()
+        val p1 = password.text.toString()
+        if(p0.isNotEmpty() && p1.isNotEmpty()){
+            loginButton.isEnabled = true
+            auth.signInWithEmailAndPassword(p0, p1).addOnCompleteListener(this) { task ->
+                when {
+                    task.isSuccessful -> {
+                        val user = auth.currentUser
+                        updateUI(user)
+                    }
+                    else -> {
+                        Log.w("Failed", task.exception)
+                        Snackbar.make(
+                            view,
+                            task.exception!!.message.toString(),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        counterIntents += 1
+                        if (counterIntents == 3) {
+                            showDialog()
+                        }
                     }
                 }
             }
+
         }
     }
 
