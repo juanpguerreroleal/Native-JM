@@ -7,7 +7,7 @@
 
     <!-- Login colors -->
     <color name="focusBorderLogin">#26418f</color>
-    <color name="hintLogin">#394DBE</color>
+    <color name="hintLogin">#26418f</color>
     <color name="borderButton">#26418f</color>
 
     <!-- Main colors -->

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@layout/app_bar"
+        app:menu="@menu/navigation_items"
         style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"/>
 
 
