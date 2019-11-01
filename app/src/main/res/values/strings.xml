@@ -9,4 +9,13 @@
     <string name="profile">Profile</string>
     <string name="home">Home</string>
     <string name="map">Map</string>
+
+  <!-- Main fragment -->
+    <string name="job">Job</string>
+    <string name="status">Status</string>
+    <string name="description">Description</string>
+    <string name="check">Check</string>
+    <string name="info">Info</string>
+    <string name="test">it works!</string>
+
 </resources>

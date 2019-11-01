@@ -22,4 +22,11 @@
         <item name="android:fontFamily">@font/roboto_mono</item>
     </style>
 
+    <style name="buttonApply" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor" tools:targetApi="lollipop">@color/colorPrimaryDark</item>
+        <item name="rippleColor" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="strokeColor">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+    </style>
+
 </resources>

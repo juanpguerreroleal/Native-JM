@@ -1,9 +1,11 @@
 package com.lms.jobmaster
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.lms.jobmaster.fragments.HomeFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,13 +16,15 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.home -> {
-                    Toast.makeText(applicationContext, "This is the home", Toast.LENGTH_SHORT).show()
+                    val fragment = HomeFragment.newInstance()
+                    openFragment(fragment)
+                    true
                 }
 
                 R.id.map -> {
@@ -33,6 +37,12 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener true
         }
+    }
 
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.main_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
