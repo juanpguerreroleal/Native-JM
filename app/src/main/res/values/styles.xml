@@ -3,6 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -19,7 +20,6 @@
         <item name="rippleColor" tools:targetApi="lollipop">@color/colorPrimary</item>
         <item name="strokeColor">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">@font/roboto_mono</item>
-
     </style>
 
 </resources>

@@ -57,11 +57,11 @@ class RegisterActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         if (emailI.isNotEmpty() && fullName.isNotEmpty() && passwordI.isNotEmpty() && cPassword.isNotEmpty()) {
+            registerButton.isEnabled = true
             auth.createUserWithEmailAndPassword(emailI, passwordI)
                 .addOnCompleteListener(this) { task ->
                     when {
                         task.isSuccessful -> {
-
 
                             val user = hashMapOf(
                                 "fullName" to fullName,

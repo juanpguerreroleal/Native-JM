@@ -7,7 +7,15 @@
 
     <!-- Login colors -->
     <color name="focusBorderLogin">#26418f</color>
-    <color name="hintLogin">#394DBE</color>
+    <color name="hintLogin">#26418f</color>
     <color name="borderButton">#26418f</color>
+
+    <!-- Main colors -->
+    <color name="bottomNav">#7b46e4</color>
+    <color name="defaultColor">#FFFF</color>
+    <color name="activeColor">#7B1FA2</color>
+
+    <!-- Others -->
+    <color name="white">#FFFFFF</color>
 
 </resources>
