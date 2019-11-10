@@ -6,7 +6,7 @@ import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
+    private val fragmentManager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +28,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.profile -> {
-
+                    val fragment = FragmentProfile()
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_holder, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
             }
             return@setOnNavigationItemSelectedListener true

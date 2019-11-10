@@ -7,6 +7,17 @@
     <string name="confirm_password">Confirm password</string>
     <string name="register">Register</string>
     <string name="profile">Profile</string>
+    <string name="experience">Experience</string>
+    <string name="previous_works">Previous works</string>
     <string name="home">Home</string>
     <string name="map">Map</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <!-- Firebase Collections -->
+    <string name="profile_collection">Profiles</string>
+    <!-- End -->
+    <string name="text_editable">You can edit the text now!</string>
+    <string name="text_non_editable">You cant edit the text now</string>
 </resources>
