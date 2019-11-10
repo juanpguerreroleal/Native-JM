@@ -20,4 +20,5 @@
     <!-- End -->
     <string name="text_editable">You can edit the text now!</string>
     <string name="text_non_editable">You cant edit the text now</string>
+    <string name="text_changes_saved">The changes have been saved successfully</string>
 </resources>

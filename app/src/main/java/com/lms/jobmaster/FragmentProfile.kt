@@ -88,7 +88,7 @@ class FragmentProfile: Fragment(){
             email_EditText.isEnabled = false
             experience_EditText.isEnabled = false
             edit_Button.setText(R.string.edit)
-            Toast.makeText(context ,R.string.text_non_editable, Toast.LENGTH_SHORT)
+            Toast.makeText(context ,R.string.text_changes_saved, Toast.LENGTH_SHORT).show()
         }
         else{
             fullName_EditText.isEnabled = true
@@ -96,7 +96,7 @@ class FragmentProfile: Fragment(){
             experience_EditText.isEnabled = true
             cancel_Button.visibility = View.VISIBLE
             edit_Button.setText(R.string.save)
-            Toast.makeText(context ,R.string.text_editable, Toast.LENGTH_SHORT)
+            Toast.makeText(context ,R.string.text_editable, Toast.LENGTH_SHORT).show()
         }
     }
     private fun cancelEvent(){
@@ -106,7 +106,7 @@ class FragmentProfile: Fragment(){
         email_EditText.isEnabled = false
         experience_EditText.isEnabled = false
         edit_Button.setText(R.string.edit)
-        Toast.makeText(context ,R.string.text_non_editable, Toast.LENGTH_SHORT)
+        Toast.makeText(context ,R.string.text_non_editable, Toast.LENGTH_SHORT).show()
     }
     private fun updateEditTexts(){
         val currentUser = auth.currentUser
