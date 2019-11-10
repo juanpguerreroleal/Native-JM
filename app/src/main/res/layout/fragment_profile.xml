@@ -8,39 +8,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
         <TextView
-            android:layout_width="200dp"
+            android:layout_weight=".5"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/profile"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="30sp">
+            android:textSize="40sp">
 
         </TextView>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/cancel_Button"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:text="@string/cancel"
-            android:background="@color/lightGray"
-            android:backgroundTint="@color/lightGray"
-            android:visibility="invisible"
-            android:layout_marginRight="5dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancel_Button"
+                    android:layout_width="90dp"
+                    android:layout_height="50dp"
+                    android:text="@string/cancel"
+                    android:background="@color/lightGray"
+                    android:backgroundTint="@color/lightGray"
+                    android:visibility="invisible"
+                    android:layout_marginRight="5dp">
 
-        </com.google.android.material.button.MaterialButton>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/edit_Button"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:text="@string/edit">
+                </com.google.android.material.button.MaterialButton>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/edit_Button"
+                    android:layout_width="90dp"
+                    android:layout_height="50dp"
+                    android:text="@string/edit">
 
-        </com.google.android.material.button.MaterialButton>
+                </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/rate_string">
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:scrollbars="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -65,6 +88,30 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_EditText"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/Transparent"
+                android:hint="@string/Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="italic"
+                android:enabled="false">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
@@ -74,16 +121,41 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email_EditText"
+                    android:id="@+id/phone_EditText"
                     android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/Transparent"
-                    android:hint="@string/Email"
+                    android:hint="@string/phone"
+                    android:inputType="numberDecimal"
                     android:textColor="@color/black"
                     android:textSize="14dp"
                     android:textStyle="italic"
                     android:enabled="false">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/occupancy_EditText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Transparent"
+                    android:hint="@string/occupancy"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="italic"
+                    android:enabled="false"
+                    >
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>

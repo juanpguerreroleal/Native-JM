@@ -8,12 +8,15 @@
     <string name="register">Register</string>
     <string name="profile">Profile</string>
     <string name="experience">Experience</string>
+    <string name="occupancy">Occupancy</string>
     <string name="previous_works">Previous works</string>
     <string name="home">Home</string>
     <string name="map">Map</string>
     <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="rate_string">Rate: ***** (x.x)</string>
+    <string name="phone">Phone</string>
 
     <!-- Firebase Collections -->
     <string name="profile_collection">Profiles</string>

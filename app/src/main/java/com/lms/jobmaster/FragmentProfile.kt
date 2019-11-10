@@ -53,11 +53,15 @@ class FragmentProfile: Fragment(){
                     val fullname = fullName_EditText.text.toString()
                     val email = email_EditText.text.toString()
                     val experience = experience_EditText.text.toString()
+                    val occupancy = occupancy_EditText.text.toString()
+                    val phone = phone_EditText.text.toString()
                     if(document.exists()){
                         val profileObject = hashMapOf<String, Any>(
+                                "occupancy" to occupancy,
                                 "fullName" to fullname,
                                 "email" to email,
-                                "experience" to experience
+                                "experience" to experience,
+                                "phone" to phone
                         )
                         db.collection(profile_string).document(currentUser.uid).update(profileObject)
                                 .addOnSuccessListener { Log.d(TAG, "Se actualizo el perfil correctamente") }
@@ -67,9 +71,11 @@ class FragmentProfile: Fragment(){
                     else{
                         val profileObject = hashMapOf(
                                 "uid" to currentUser.uid,
+                                "occupancy" to occupancy,
                                 "fullName" to fullname,
                                 "email" to email,
-                                "experience" to experience
+                                "experience" to experience,
+                                "phone" to phone
                         )
                         db.collection(profile_string).document(currentUser.uid).set(profileObject)
                                 .addOnSuccessListener { Log.d(TAG, "Se registro el perfil correctamente") }
@@ -87,6 +93,8 @@ class FragmentProfile: Fragment(){
             fullName_EditText.isEnabled = false
             email_EditText.isEnabled = false
             experience_EditText.isEnabled = false
+            occupancy_EditText.isEnabled = false
+            phone_EditText.isEnabled = false
             edit_Button.setText(R.string.edit)
             Toast.makeText(context ,R.string.text_changes_saved, Toast.LENGTH_SHORT).show()
         }
@@ -94,6 +102,8 @@ class FragmentProfile: Fragment(){
             fullName_EditText.isEnabled = true
             email_EditText.isEnabled = true
             experience_EditText.isEnabled = true
+            occupancy_EditText.isEnabled = true
+            phone_EditText.isEnabled = true
             cancel_Button.visibility = View.VISIBLE
             edit_Button.setText(R.string.save)
             Toast.makeText(context ,R.string.text_editable, Toast.LENGTH_SHORT).show()
@@ -105,6 +115,8 @@ class FragmentProfile: Fragment(){
         fullName_EditText.isEnabled = false
         email_EditText.isEnabled = false
         experience_EditText.isEnabled = false
+        occupancy_EditText.isEnabled = false
+        phone_EditText.isEnabled = false
         edit_Button.setText(R.string.edit)
         Toast.makeText(context ,R.string.text_non_editable, Toast.LENGTH_SHORT).show()
     }
@@ -116,6 +128,8 @@ class FragmentProfile: Fragment(){
                 val fullname = document.data?.get("fullName").toString()
                 val email = document.data?.get("email").toString()
                 val experience = document.data?.get("experience").toString()
+                val occupancy = document.data?.get("occupancy").toString()
+                val phone = document.data?.get("phone").toString()
                 if(fullname.isNotEmpty() and fullname.isNotBlank() and !fullname.equals("null")){
                     fullName_EditText.setText(document.data?.get("fullName").toString())
                 }
@@ -124,6 +138,12 @@ class FragmentProfile: Fragment(){
                 }
                 if(experience.isNotEmpty() and experience.isNotBlank() and !experience.equals("null")){
                     experience_EditText.setText(document.data?.get("experience").toString())
+                }
+                if(occupancy.isNotEmpty() and occupancy.isNotBlank() and !occupancy.equals("null")){
+                    occupancy_EditText.setText(document.data?.get("occupancy").toString())
+                }
+                if(phone.isNotEmpty() and phone.isNotBlank() and !phone.equals("null")){
+                    phone_EditText.setText(document.data?.get("phone").toString())
                 }
             }
         }.addOnFailureListener{

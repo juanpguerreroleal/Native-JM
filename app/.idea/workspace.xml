@@ -21,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lms/jobmaster/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lms/jobmaster/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
@@ -64,24 +65,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="260">
+              <caret line="105" column="51" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+              <folding>
+                <element signature="e#1398#1414#0" expanded="true" />
+                <element signature="e#1957#1971#0" expanded="true" />
+                <element signature="e#2375#2396#0" expanded="true" />
+                <element signature="e#4556#4571#0" expanded="true" />
+                <element signature="e#5681#5696#0" expanded="true" />
+                <element signature="e#6838#6857#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+            <state relative-caret-position="-112">
+              <caret line="118" column="40" lean-forward="true" selection-start-line="118" selection-start-column="40" selection-end-line="118" selection-end-column="40" />
               <folding>
                 <element signature="e#27#660#0" expanded="true" />
-                <element signature="e#3961#3988#1" expanded="true" />
+                <element signature="e#4360#4387#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,8 +132,8 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/fullName.kt" />
         <option value="$PROJECT_DIR$/../build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt" />
       </list>
     </option>
@@ -391,11 +409,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.8520599" visible="true" weight="0.20469798" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.85064936" visible="true" weight="0.20469798" />
       <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.14794007" side_tool="true" weight="0.20469798" />
+      <window_info id="Favorites" order="3" sideWeight="0.14935064" side_tool="true" visible="true" weight="0.20469798" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
@@ -407,7 +426,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.1756374" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="6" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="6" visible="true" weight="0.12747875" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.24362606" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
@@ -416,7 +435,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.26107383" />
+      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.26107383" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.22281879" />
     </layout>
@@ -464,37 +483,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>83</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>92</line>
+          <line>100</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>102</line>
+          <line>112</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>84</line>
+          <line>90</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>85</line>
+          <line>91</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>93</line>
+          <line>101</line>
           <properties />
           <option name="timeStamp" value="37" />
         </line-breakpoint>
@@ -506,25 +525,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>67</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>73</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>76</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>75</line>
+          <line>81</line>
           <properties>
             <option name="lambda-ordinal" value="0" />
           </properties>
@@ -532,7 +551,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>74</line>
+          <line>80</line>
           <properties>
             <option name="lambda-ordinal" value="0" />
           </properties>
@@ -540,13 +559,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>64</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt</url>
-          <line>118</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
@@ -652,6 +671,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/99c7f6ab7039733fe3ebfdb438c2ead3/jetified-firebase-firestore-21.2.1/jars/classes.jar!/com/google/firebase/firestore/DocumentSnapshot.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+          <folding>
+            <element signature="e#2439#2440#0" expanded="true" />
+            <element signature="e#2478#2479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -662,28 +692,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="78" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
+        <state relative-caret-position="306">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lms/jobmaster/FragmentProfile.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+        <state relative-caret-position="-112">
+          <caret line="118" column="40" lean-forward="true" selection-start-line="118" selection-start-column="40" selection-end-line="118" selection-end-column="40" />
           <folding>
             <element signature="e#27#660#0" expanded="true" />
-            <element signature="e#3961#3988#1" expanded="true" />
+            <element signature="e#4360#4387#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="105" column="51" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+          <folding>
+            <element signature="e#1398#1414#0" expanded="true" />
+            <element signature="e#1957#1971#0" expanded="true" />
+            <element signature="e#2375#2396#0" expanded="true" />
+            <element signature="e#4556#4571#0" expanded="true" />
+            <element signature="e#5681#5696#0" expanded="true" />
+            <element signature="e#6838#6857#0" expanded="true" />
           </folding>
         </state>
       </provider>
