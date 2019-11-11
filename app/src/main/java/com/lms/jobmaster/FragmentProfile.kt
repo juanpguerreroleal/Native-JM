@@ -6,14 +6,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.Timestamp.now
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_profile.*
+import java.time.LocalDateTime
 import kotlin.math.absoluteValue
 import kotlin.math.exp
 
@@ -31,6 +35,15 @@ class FragmentProfile: Fragment(){
         super.onStart()
         edit_Button.setOnClickListener{editOrSaveEvent()}
         cancel_Button.setOnClickListener{cancelEvent()}
+        ArrayAdapter.createFromResource(
+                requireActivity(),
+                R.array.userTypes_array,
+                android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            userTypes_Spinner.adapter = adapter
+            userTypes_Spinner.isEnabled = false
+        }
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?{
         super.onStart()
@@ -55,13 +68,15 @@ class FragmentProfile: Fragment(){
                     val experience = experience_EditText.text.toString()
                     val occupancy = occupancy_EditText.text.toString()
                     val phone = phone_EditText.text.toString()
+                    val userTypePosition = userTypes_Spinner.selectedItemPosition
                     if(document.exists()){
                         val profileObject = hashMapOf<String, Any>(
                                 "occupancy" to occupancy,
                                 "fullName" to fullname,
                                 "email" to email,
                                 "experience" to experience,
-                                "phone" to phone
+                                "phone" to phone,
+                                "userType" to userTypePosition
                         )
                         db.collection(profile_string).document(currentUser.uid).update(profileObject)
                                 .addOnSuccessListener { Log.d(TAG, "Se actualizo el perfil correctamente") }
@@ -75,7 +90,8 @@ class FragmentProfile: Fragment(){
                                 "fullName" to fullname,
                                 "email" to email,
                                 "experience" to experience,
-                                "phone" to phone
+                                "phone" to phone,
+                                "userType" to userTypePosition
                         )
                         db.collection(profile_string).document(currentUser.uid).set(profileObject)
                                 .addOnSuccessListener { Log.d(TAG, "Se registro el perfil correctamente") }
@@ -95,10 +111,12 @@ class FragmentProfile: Fragment(){
             experience_EditText.isEnabled = false
             occupancy_EditText.isEnabled = false
             phone_EditText.isEnabled = false
+            userTypes_Spinner.isEnabled = false
             edit_Button.setText(R.string.edit)
             Toast.makeText(context ,R.string.text_changes_saved, Toast.LENGTH_SHORT).show()
         }
         else{
+            userTypes_Spinner.isEnabled = true
             fullName_EditText.isEnabled = true
             email_EditText.isEnabled = true
             experience_EditText.isEnabled = true
@@ -117,6 +135,7 @@ class FragmentProfile: Fragment(){
         experience_EditText.isEnabled = false
         occupancy_EditText.isEnabled = false
         phone_EditText.isEnabled = false
+        userTypes_Spinner.isEnabled = false
         edit_Button.setText(R.string.edit)
         Toast.makeText(context ,R.string.text_non_editable, Toast.LENGTH_SHORT).show()
     }
@@ -130,6 +149,7 @@ class FragmentProfile: Fragment(){
                 val experience = document.data?.get("experience").toString()
                 val occupancy = document.data?.get("occupancy").toString()
                 val phone = document.data?.get("phone").toString()
+                val userTypePosition = document.data?.get("userType").toString()
                 if(fullname.isNotEmpty() and fullname.isNotBlank() and !fullname.equals("null")){
                     fullName_EditText.setText(document.data?.get("fullName").toString())
                 }
@@ -144,6 +164,9 @@ class FragmentProfile: Fragment(){
                 }
                 if(phone.isNotEmpty() and phone.isNotBlank() and !phone.equals("null")){
                     phone_EditText.setText(document.data?.get("phone").toString())
+                }
+                if(userTypePosition.isNotEmpty() and userTypePosition.isNotBlank() and !userTypePosition.equals("null")){
+                    userTypes_Spinner.setSelection(userTypePosition.toInt())
                 }
             }
         }.addOnFailureListener{
