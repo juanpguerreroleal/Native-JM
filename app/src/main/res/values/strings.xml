@@ -4,6 +4,7 @@
     <string name="Password">Password</string>
     <string name="login">Login</string>
     <string name="fullName">Full name</string>
+    <string name="customerType">Customer type</string>
     <string name="confirm_password">Confirm password</string>
     <string name="register">Register</string>
     <string name="profile">Profile</string>

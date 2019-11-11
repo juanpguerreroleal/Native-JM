@@ -16,15 +16,25 @@
             android:orientation="vertical"
             android:weightSum="1">
             <TextView
-                android:layout_weight=".5"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/profile"
                 android:textColor="@color/black"
                 android:textAlignment="center"
-                android:textSize="40sp">
+                android:textSize="60sp">
 
             </TextView>
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:text="@string/rate_string"
+                android:textAlignment="center"
+                android:paddingVertical="20dp"
+                android:textSize="15sp"
+                android:layout_gravity="right">
+            </TextView>-->
         </LinearLayout>
 
         <LinearLayout
@@ -75,18 +85,19 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".5"
-                android:text="@string/rate_string"
-                android:textAlignment="center"
-                android:paddingVertical="15dp"
-                android:textSize="20sp"
+                android:layout_weight=".4"
+                android:text="@string/customerType"
+                android:paddingLeft="14dp"
+                android:paddingVertical="17dp"
+                android:textSize="14sp"
+                android:textStyle="italic"
                 android:layout_gravity="right">
             </TextView>
             <Spinner
                 android:id="@+id/userTypes_Spinner"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".5"
+                android:layout_weight=".6"
                 style="@style/Widget.AppCompat.Spinner.Underlined"/>
         </LinearLayout>
         <LinearLayout
@@ -207,6 +218,43 @@
                     >
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:orientation="vertical"
+                android:weightSum="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"></ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:text="Photo"
+                    android:textStyle="italic"
+                    android:textAlignment="center">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Change Photo">
+
+                </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
