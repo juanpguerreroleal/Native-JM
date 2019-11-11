@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity() {
 
     private val fragmentManager = supportFragmentManager
@@ -47,7 +46,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> {
 
                     val fragment = FragmentProfile()
-                    loadFragment(fragment)
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_holder, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
             }
             return@setOnNavigationItemSelectedListener true

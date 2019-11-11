@@ -4,12 +4,39 @@
     <string name="Password">Password</string>
     <string name="login">Login</string>
     <string name="fullName">Full name</string>
+    <string name="customerType">Customer type</string>
     <string name="confirm_password">Confirm password</string>
     <string name="register">Register</string>
     <string name="profile">Profile</string>
+    <string name="experience">Experience</string>
+    <string name="occupancy">Occupancy</string>
+    <string name="previous_works">Previous works</string>
     <string name="home">Home</string>
     <string name="map">Map</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="rate_string">Rate: ***** (x.x)</string>
+    <string name="phone">Phone</string>
+    <string name="user_type">User type</string>
+    <string name="empty"></string>
+    <string name="nonexistent_profile">You have not created a profile yet, update your data please</string>
+    <string name="accept">Ok</string>
+
+    <!-- Firebase Collections -->
+    <string name="profile_collection">Profiles</string>
+    <!-- End -->
+    <string name="text_editable">You can edit the text now!</string>
+    <string name="text_non_editable">You cant edit the text now</string>
+    <string name="text_changes_saved">The changes have been saved successfully</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--String arrays-->
+    <string-array name="userTypes_array">
+        <item>Worker</item>
+        <item>Customer</item>
+    </string-array>
 </resources>
