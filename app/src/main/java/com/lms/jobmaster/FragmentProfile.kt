@@ -1,6 +1,8 @@
 package com.lms.jobmaster
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,21 +12,15 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.Timestamp.now
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_profile.*
-import java.time.LocalDateTime
-import kotlin.math.absoluteValue
-import kotlin.math.exp
 
 class FragmentProfile: Fragment(){
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     private lateinit var profile_string: String
+    private lateinit var empty_string: String
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -142,6 +138,7 @@ class FragmentProfile: Fragment(){
     private fun updateEditTexts(){
         val currentUser = auth.currentUser
         var uid = currentUser!!.uid
+        empty_string = getString(R.string.empty)
         db.collection(profile_string).document(uid).get().addOnSuccessListener { document ->
             if(document != null){
                 val fullname = document.data?.get("fullName").toString()
@@ -153,20 +150,49 @@ class FragmentProfile: Fragment(){
                 if(fullname.isNotEmpty() and fullname.isNotBlank() and !fullname.equals("null")){
                     fullName_EditText.setText(document.data?.get("fullName").toString())
                 }
+                else{
+                    fullName_EditText.setText(empty_string)
+                }
                 if(email.isNotEmpty() and email.isNotBlank() and !email.equals("null")){
                     email_EditText.setText(document.data?.get("email").toString())
+                }
+                else{
+                    email_EditText.setText(empty_string)
                 }
                 if(experience.isNotEmpty() and experience.isNotBlank() and !experience.equals("null")){
                     experience_EditText.setText(document.data?.get("experience").toString())
                 }
+                else{
+                    experience_EditText.setText(empty_string)
+                }
                 if(occupancy.isNotEmpty() and occupancy.isNotBlank() and !occupancy.equals("null")){
                     occupancy_EditText.setText(document.data?.get("occupancy").toString())
+                }
+                else{
+                    occupancy_EditText.setText(empty_string)
                 }
                 if(phone.isNotEmpty() and phone.isNotBlank() and !phone.equals("null")){
                     phone_EditText.setText(document.data?.get("phone").toString())
                 }
+                else{
+                    phone_EditText.setText(empty_string)
+                }
                 if(userTypePosition.isNotEmpty() and userTypePosition.isNotBlank() and !userTypePosition.equals("null")){
                     userTypes_Spinner.setSelection(userTypePosition.toInt())
+                }
+                if(fullname.equals("null") and
+                        phone.equals("null") and
+                        email.equals("null") and
+                        occupancy.equals("null")){
+                    val dialogBuilder = AlertDialog.Builder(requireActivity())
+                    dialogBuilder.setMessage(R.string.nonexistent_profile)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.accept, DialogInterface.OnClickListener {
+                                dialog, id -> editOrSaveEvent()
+                            })
+                    val alert = dialogBuilder.create()
+                    alert.setTitle("Update your profile")
+                    alert.show()
                 }
             }
         }.addOnFailureListener{

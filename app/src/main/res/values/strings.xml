@@ -19,6 +19,9 @@
     <string name="rate_string">Rate: ***** (x.x)</string>
     <string name="phone">Phone</string>
     <string name="user_type">User type</string>
+    <string name="empty"></string>
+    <string name="nonexistent_profile">You have not created a profile yet, update your data please</string>
+    <string name="accept">Ok</string>
 
     <!-- Firebase Collections -->
     <string name="profile_collection">Profiles</string>
@@ -33,7 +36,7 @@
 
     <!--String arrays-->
     <string-array name="userTypes_array">
-        <item key="1">Customer</item>
-        <item key="2">Worker</item>
+        <item>Worker</item>
+        <item>Customer</item>
     </string-array>
 </resources>
