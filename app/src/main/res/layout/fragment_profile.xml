@@ -232,9 +232,11 @@
                 android:orientation="vertical"
                 android:weightSum="1">
                 <ImageView
+                    android:id="@+id/userPhoto_ImageView"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".8"></ImageView>
+                    android:layout_weight=".8"
+                    android:layout_marginTop="10dp"></ImageView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -249,9 +251,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".5">
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/uploadPhoto_Button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Change Photo">
+                    android:text="Change Photo"
+                    android:clickable="false">
 
                 </com.google.android.material.button.MaterialButton>
             </LinearLayout>
