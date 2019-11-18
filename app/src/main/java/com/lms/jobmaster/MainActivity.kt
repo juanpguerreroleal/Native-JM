@@ -18,14 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        val fragment = FragmentMap()
+        val fragment = FragmentHome()
         loadFragment(fragment)
-
+        bottomNavigationView.selectedItemId = R.id.home
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+
             when (item.itemId) {
-
                 R.id.home -> {
-
                     val fragment = FragmentHome()
                     val transaction = fragmentManager.beginTransaction()
                     transaction.replace(R.id.fragment_holder, fragment)

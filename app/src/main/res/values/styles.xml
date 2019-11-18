@@ -35,5 +35,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Navbar" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 
 </resources>
