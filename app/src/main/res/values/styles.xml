@@ -29,4 +29,11 @@
         <item name="android:fontFamily">@font/roboto_mono</item>
     </style>
 
+    <style name="Headers" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/maitree_medium</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
 </resources>

@@ -1,13 +1,13 @@
 package com.lms.jobmaster
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.lms.jobmaster.fragments.HomeFragment
-
 
 class MainActivity : AppCompatActivity() {
+
+    private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,33 +16,53 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        val fragment = FragmentMap()
+        loadFragment(fragment)
+
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.home -> {
-                    val fragment = HomeFragment.newInstance()
-                    openFragment(fragment)
-                    true
+
+                    val fragment = FragmentHome()
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_holder, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
 
                 R.id.map -> {
+
+                    val fragment = FragmentMap()
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_holder, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
 
                 }
 
                 R.id.profile -> {
 
+                    val fragment = FragmentProfile()
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_holder, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
             }
             return@setOnNavigationItemSelectedListener true
         }
+
     }
 
-    private fun openFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_container, fragment)
+    private fun loadFragment(fragment: Fragment){
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_holder, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
 }
