@@ -13,6 +13,17 @@
     <string name="previous_works">Previous works</string>
     <string name="home">Home</string>
     <string name="map">Map</string>
+
+  <!-- Main fragment -->
+    <string name="name">Name</string>
+
+    <string name="job">Job:</string>
+    <string name="status">Status:</string>
+    <string name="description">Description</string>
+    <string name="check">Check</string>
+    <string name="info">Info</string>
+    <string name="test">it works!</string>
+
     <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
@@ -22,9 +33,11 @@
     <string name="empty"></string>
     <string name="nonexistent_profile">You have not created a profile yet, update your data please</string>
     <string name="accept">Ok</string>
+    <string name="current_job">Current Job:</string>
 
     <!-- Firebase Collections -->
     <string name="profile_collection">Profiles</string>
+
     <!-- End -->
     <string name="text_editable">You can edit the text now!</string>
     <string name="text_non_editable">You cant edit the text now</string>
@@ -33,6 +46,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_src">IMAGE</string>
 
     <!--String arrays-->
     <string-array name="userTypes_array">

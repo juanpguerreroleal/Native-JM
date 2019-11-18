@@ -8,75 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:117439070936:android:19e5920850132bcf4c8dad",
-        "android_client_info": {
-          "package_name": "com.jobmaster.jobmaster"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAHVgWTR1hXDAQmSktH7YPan7ApFVbZQDk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:117439070936:android:57ade7a48cc1f7274c8dad",
-        "android_client_info": {
-          "package_name": "com.lms.JobMaster"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "117439070936-rvp0i31kpf7e40kk8iu4ne0qi9pmh5do.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.lms.JobMaster",
-            "certificate_hash": "ef1e5e1145b527bee056777a07b99c8e5d51d183"
-          }
-        },
-        {
-          "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAHVgWTR1hXDAQmSktH7YPan7ApFVbZQDk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "117439070936-78mu9acnpjap70cq6gpq0oi4u3nurmje.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:117439070936:android:d4146edadb38df744c8dad",
         "android_client_info": {
-          "package_name": "com.lms.medicenter"
+          "package_name": "com.lms.JobMaster"
         }
       },
       "oauth_client": [
