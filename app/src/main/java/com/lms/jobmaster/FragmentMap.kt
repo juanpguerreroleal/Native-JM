@@ -1,7 +1,6 @@
 package com.lms.jobmaster
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.location.Location
@@ -14,9 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.getbase.floatingactionbutton.FloatingActionButton
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -45,6 +41,7 @@ class FragmentMap : Fragment(){
 
     lateinit var latitud : String
     lateinit var longitud : String
+    lateinit var latLng : LatLng
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -90,7 +87,7 @@ class FragmentMap : Fragment(){
                         if (location != null) {
                             locationGps = location
 
-                            val latLng = LatLng(location.latitude, location.longitude)
+                            latLng = LatLng(location.latitude, location.longitude)
 
                             latitud = location.latitude.toString()
                             longitud = location.longitude.toString()
@@ -129,7 +126,8 @@ class FragmentMap : Fragment(){
                     override fun onLocationChanged(location: Location?) {
                         if (location != null) {
                             locationNetwork = location
-                            val latLng = LatLng(location.latitude, location.longitude)
+
+                            latLng = LatLng(location.latitude, location.longitude)
 
                             latitud = location.latitude.toString()
                             longitud = location.longitude.toString()
@@ -168,7 +166,7 @@ class FragmentMap : Fragment(){
         }
     }
 
-    fun postDataWork() {
+    fun postDataWork(title: String, expiration : String, description:String) {
 
         auth = FirebaseAuth.getInstance()
         storage = FirebaseStorage.getInstance()
@@ -183,14 +181,22 @@ class FragmentMap : Fragment(){
 
 
             val obj = hashMapOf(
-                "expiration" to "2020",
+                "expiration" to expiration,
                 "location" to location,
                 "owner_id" to currentUser.uid,
-                "title" to "Soldador"
+                "title" to title,
+                "active" to "1",
+                "description" to description
             )
 
-            db.collection("Works").add(obj).addOnCompleteListener{
+            db.collection("ActiveWorks").add(obj).addOnCompleteListener{
                 Toast.makeText(activity,"Job added successfully",Toast.LENGTH_SHORT).show()
+
+                val markerOptions = MarkerOptions()
+                markerOptions.position(latLng)
+                markerOptions.title(title)
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
+                googleMap.addMarker(markerOptions)
             }.addOnCanceledListener {
                 Toast.makeText(activity,"Something went wrong...",Toast.LENGTH_SHORT).show()
             }
