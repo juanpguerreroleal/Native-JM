@@ -1,6 +1,5 @@
 package com.lms.jobmaster
 
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -12,6 +11,8 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,6 +20,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 
 class FragmentMap : Fragment() {
@@ -32,12 +36,30 @@ class FragmentMap : Fragment() {
     private var locationGps: Location? = null
     private var locationNetwork: Location? = null
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var storage: FirebaseStorage
+    private lateinit var db: FirebaseFirestore
 
+
+    private lateinit var btn : Button
+
+
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
+        db = FirebaseFirestore.getInstance()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_map,container,false)
 
+        btn =  root.findViewById(R.id.button)
+
+        btn.setOnClickListener{
+            postDataWork()
+        }
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync {
@@ -45,6 +67,7 @@ class FragmentMap : Fragment() {
 
             getLocation()
         }
+
 
         return root
     }
@@ -71,7 +94,7 @@ class FragmentMap : Fragment() {
                             markerOptions.title("Posición Actual")
                             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
                             //googleMap.addMarker(markerOptions)
-                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
 
@@ -131,6 +154,31 @@ class FragmentMap : Fragment() {
 
         } else {
             startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+        }
+    }
+
+    private fun postDataWork(){
+
+        val currentUser = auth.currentUser
+
+        if(currentUser != null){
+
+            val obj = hashMapOf(
+                "expiration" to "2020",
+                "location" to "Monterrey",
+                "owner_id" to currentUser.uid,
+                "title" to "Soldador"
+            )
+
+            db.collection("Works").add(obj)
+
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Done!", Toast.LENGTH_SHORT).show()
+            }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Error!", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 

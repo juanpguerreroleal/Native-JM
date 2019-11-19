@@ -20,35 +20,25 @@ class MainActivity : AppCompatActivity() {
 
         val fragment = FragmentHome()
         loadFragment(fragment)
+
         bottomNavigationView.selectedItemId = R.id.home
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
 
             when (item.itemId) {
                 R.id.home -> {
                     val fragment = FragmentHome()
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.fragment_holder, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    loadFragment(fragment)
                 }
 
                 R.id.map -> {
-
                     val fragment = FragmentMap()
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.fragment_holder, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
-
+                    loadFragment(fragment)
                 }
 
                 R.id.profile -> {
 
                     val fragment = FragmentProfile()
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.fragment_holder, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    loadFragment(fragment)
                 }
             }
             return@setOnNavigationItemSelectedListener true
