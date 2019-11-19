@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.lms.jobmaster">
 
@@ -17,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/background_label_fab" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -26,7 +27,6 @@
             android:value="AIzaSyAr52ctzK_Fb2zux5XU-koXG24IcibjVvM" />
 
         <activity android:name=".RegisterActivity" />
-
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
@@ -36,10 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".MainActivity"
-             />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
