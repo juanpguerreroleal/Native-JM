@@ -11,9 +11,9 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.getbase.floatingactionbutton.FloatingActionButton
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -24,8 +24,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
+class FragmentMap : Fragment(){
 
-class FragmentMap : Fragment() {
 
     lateinit var mapFragment: SupportMapFragment
     lateinit var googleMap : GoogleMap
@@ -40,26 +40,18 @@ class FragmentMap : Fragment() {
     private lateinit var storage: FirebaseStorage
     private lateinit var db: FirebaseFirestore
 
+    private var latitud : String = ""
+    private var longitud : String = ""
 
-    private lateinit var btn : Button
-
-
-    override fun onCreate(savedInstanceState: Bundle?){
-        super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-        storage = FirebaseStorage.getInstance()
-        db = FirebaseFirestore.getInstance()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val root = inflater.inflate(R.layout.fragment_map,container,false)
+        var view = inflater.inflate(R.layout.fragment_map,container,false)
 
-        btn =  root.findViewById(R.id.button)
+        return view
+    }
 
-        btn.setOnClickListener{
-            postDataWork()
-        }
+    override fun onStart() {
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync {
@@ -68,8 +60,7 @@ class FragmentMap : Fragment() {
             getLocation()
         }
 
-
-        return root
+        super.onStart()
     }
 
     @SuppressLint("MissingPermission")
@@ -82,18 +73,22 @@ class FragmentMap : Fragment() {
         if (hasGps || hasNetwork) {
 
             if (hasGps) {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30000, 0F, object : LocationListener {
                     override fun onLocationChanged(location: Location?) {
 
                         if (location != null) {
                             locationGps = location
 
                             val latLng = LatLng(location.latitude, location.longitude)
+
+                            latitud = location.latitude.toString()
+                            longitud = location.longitude.toString()
+
                             val markerOptions = MarkerOptions()
                             markerOptions.position(latLng)
                             markerOptions.title("Posición Actual")
                             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                            //googleMap.addMarker(markerOptions)
+                            googleMap.addMarker(markerOptions)
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
@@ -117,18 +112,22 @@ class FragmentMap : Fragment() {
                     locationGps = localGpsLocation
             }
             if (hasNetwork) {
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object :
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000, 0F, object :
                     LocationListener {
                     override fun onLocationChanged(location: Location?) {
                         if (location != null) {
                             locationNetwork = location
                             val latLng = LatLng(location.latitude, location.longitude)
+
+                            latitud = latLng.toString()
+                            longitud = latLng.toString()
+
                             val markerOptions = MarkerOptions()
                             markerOptions.position(latLng)
-                            markerOptions.title("Posición Actual")
+                            //markerOptions.title("Posición Actual")
                             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
                             googleMap.addMarker(markerOptions)
-                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
 
@@ -157,26 +156,31 @@ class FragmentMap : Fragment() {
         }
     }
 
-    private fun postDataWork(){
+    fun postDataWork() {
+
+        auth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        var location = latitud+longitud
 
         val currentUser = auth.currentUser
 
         if(currentUser != null){
 
+
+
             val obj = hashMapOf(
                 "expiration" to "2020",
-                "location" to "Monterrey",
+                "location" to location,
                 "owner_id" to currentUser.uid,
                 "title" to "Soldador"
             )
 
-            db.collection("Works").add(obj)
+            db.collection("Works").add(obj).addOnCompleteListener{
 
-                .addOnSuccessListener {
-                    Toast.makeText(activity, "Done!", Toast.LENGTH_SHORT).show()
-            }
-                .addOnFailureListener {
-                    Toast.makeText(activity, "Error!", Toast.LENGTH_SHORT).show()
+            }.addOnCanceledListener {
+
             }
 
         }
