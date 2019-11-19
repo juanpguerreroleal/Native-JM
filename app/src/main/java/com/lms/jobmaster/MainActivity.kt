@@ -25,14 +25,18 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         val fragment = FragmentHome()
-        loadFragment(fragment)
+        loadFragment(fragment,"homeFragment")
 
         floatinActionMenu = findViewById(R.id.menu_fab)
 
         addJobButton = findViewById(R.id.addWork)
 
         addJobButton.setOnClickListener{
-            FragmentMap().postDataWork()
+
+            var fragment = fragmentManager.findFragmentByTag("mapFragment") as FragmentMap
+
+            fragment.postDataWork()
+
             floatinActionMenu.collapse()
 
         }
@@ -43,18 +47,18 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     val fragment = FragmentHome()
-                    loadFragment(fragment)
+                    loadFragment(fragment,"homeFragment")
                 }
 
                 R.id.map -> {
                     val fragment = FragmentMap()
-                    loadFragment(fragment)
+                    loadFragment(fragment,"mapFragment")
                 }
 
                 R.id.profile -> {
 
                     val fragment = FragmentProfile()
-                    loadFragment(fragment)
+                    loadFragment(fragment,"profileFragment")
                 }
             }
             return@setOnNavigationItemSelectedListener true
@@ -62,11 +66,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment, tag : String){
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_holder, fragment)
+        transaction.replace(R.id.fragment_holder, fragment,tag)
         transaction.addToBackStack(null)
         transaction.commit()
+
     }
 
 

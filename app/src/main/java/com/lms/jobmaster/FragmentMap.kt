@@ -1,6 +1,7 @@
 package com.lms.jobmaster
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.location.Location
@@ -14,6 +15,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.getbase.floatingactionbutton.FloatingActionButton
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -40,9 +43,16 @@ class FragmentMap : Fragment(){
     private lateinit var storage: FirebaseStorage
     private lateinit var db: FirebaseFirestore
 
-    private var latitud : String = ""
-    private var longitud : String = ""
+    lateinit var latitud : String
+    lateinit var longitud : String
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        latitud = ""
+        longitud = ""
+
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -52,6 +62,7 @@ class FragmentMap : Fragment(){
     }
 
     override fun onStart() {
+
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync {
@@ -64,7 +75,7 @@ class FragmentMap : Fragment(){
     }
 
     @SuppressLint("MissingPermission")
-    private fun getLocation() {
+     fun getLocation() {
 
         locationManager = this.context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
@@ -84,11 +95,11 @@ class FragmentMap : Fragment(){
                             latitud = location.latitude.toString()
                             longitud = location.longitude.toString()
 
-                            val markerOptions = MarkerOptions()
-                            markerOptions.position(latLng)
-                            markerOptions.title("Posición Actual")
-                            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                            googleMap.addMarker(markerOptions)
+                            //val markerOptions = MarkerOptions()
+                            //markerOptions.position(latLng)
+                            //markerOptions.title("Posición Actual")
+                            //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
+                            //googleMap.addMarker(markerOptions)
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
@@ -112,6 +123,7 @@ class FragmentMap : Fragment(){
                     locationGps = localGpsLocation
             }
             if (hasNetwork) {
+
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000, 0F, object :
                     LocationListener {
                     override fun onLocationChanged(location: Location?) {
@@ -119,14 +131,14 @@ class FragmentMap : Fragment(){
                             locationNetwork = location
                             val latLng = LatLng(location.latitude, location.longitude)
 
-                            latitud = latLng.toString()
-                            longitud = latLng.toString()
+                            latitud = location.latitude.toString()
+                            longitud = location.longitude.toString()
 
-                            val markerOptions = MarkerOptions()
-                            markerOptions.position(latLng)
+                            //val markerOptions = MarkerOptions()
+                            //markerOptions.position(latLng)
                             //markerOptions.title("Posición Actual")
-                            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                            googleMap.addMarker(markerOptions)
+                            //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
+                            //googleMap.addMarker(markerOptions)
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
@@ -162,7 +174,7 @@ class FragmentMap : Fragment(){
         storage = FirebaseStorage.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        var location = latitud+longitud
+        var location = "$latitud,$longitud"
 
         val currentUser = auth.currentUser
 
@@ -178,9 +190,9 @@ class FragmentMap : Fragment(){
             )
 
             db.collection("Works").add(obj).addOnCompleteListener{
-
+                Toast.makeText(activity,"Job added successfully",Toast.LENGTH_SHORT).show()
             }.addOnCanceledListener {
-
+                Toast.makeText(activity,"Something went wrong...",Toast.LENGTH_SHORT).show()
             }
 
         }
