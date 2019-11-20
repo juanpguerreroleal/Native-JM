@@ -16,15 +16,12 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 class FragmentMap : Fragment(){
-
 
     lateinit var mapFragment: SupportMapFragment
     lateinit var googleMap : GoogleMap
@@ -53,9 +50,7 @@ class FragmentMap : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var view = inflater.inflate(R.layout.fragment_map,container,false)
-
-        return view
+        return inflater.inflate(R.layout.fragment_map,container,false)
     }
 
     override fun onStart() {
@@ -92,11 +87,6 @@ class FragmentMap : Fragment(){
                             latitud = location.latitude.toString()
                             longitud = location.longitude.toString()
 
-                            //val markerOptions = MarkerOptions()
-                            //markerOptions.position(latLng)
-                            //markerOptions.title("Posición Actual")
-                            //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                            //googleMap.addMarker(markerOptions)
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
@@ -132,11 +122,6 @@ class FragmentMap : Fragment(){
                             latitud = location.latitude.toString()
                             longitud = location.longitude.toString()
 
-                            //val markerOptions = MarkerOptions()
-                            //markerOptions.position(latLng)
-                            //markerOptions.title("Posición Actual")
-                            //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                            //googleMap.addMarker(markerOptions)
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                         }
                     }
@@ -179,7 +164,6 @@ class FragmentMap : Fragment(){
         if(currentUser != null){
 
 
-
             val obj = hashMapOf(
                 "expiration" to expiration,
                 "location" to location,
@@ -192,14 +176,37 @@ class FragmentMap : Fragment(){
             db.collection("ActiveWorks").add(obj).addOnCompleteListener{
                 Toast.makeText(activity,"Job added successfully",Toast.LENGTH_SHORT).show()
 
-                val markerOptions = MarkerOptions()
-                markerOptions.position(latLng)
-                markerOptions.title(title)
-                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                googleMap.addMarker(markerOptions)
+
+                getAvailableWorks() // After inserting current job, now we call this method to diplay availables works from is usser on the map
+
             }.addOnCanceledListener {
                 Toast.makeText(activity,"Something went wrong...",Toast.LENGTH_SHORT).show()
             }
+
+        }
+    }
+
+
+    private fun getAvailableWorks(){
+
+        auth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        val currentUser = auth.currentUser
+
+        if(currentUser != null){
+
+            // Query database, get jobs, get latlng field and add markers on map
+
+            //foreach Job in Jobs from Database:
+
+            //val markerOptions = MarkerOptions()
+            //markerOptions.position(latLng)
+            //markerOptions.title("Job Name")
+            //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
+            //googleMap.addMarker(markerOptions)
+
 
         }
     }
